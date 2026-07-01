@@ -1,0 +1,11 @@
+streamlit
+pandas
+numpy
+requests
+python-dotenv
+plotly
+folium
+streamlit-folium
+rasterio
+shapely
+branca
