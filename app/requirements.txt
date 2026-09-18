@@ -3,9 +3,10 @@ pandas
 numpy
 requests
 python-dotenv
-plotly
+plotly==5.24.1
 folium
 streamlit-folium
 rasterio
 shapely
 branca
+openpyxl
