@@ -35,15 +35,6 @@ Python · Streamlit · Pandas · Folium/Plotly(지도 시각화) · Kakao API(�
 
 ![주소-좌표 변환](assets/demo/demo_4_address_to_coord.gif)
 
-**추가 기능 미리보기**
-
-| | |
-|---|---|
-| ![C-LCI 결과 카드·카테고리별 점수](assets/demo/screenshot_result_card_category.png) | ![예산 기반 주거지 추천](assets/demo/screenshot_budget_recommend.png) |
-| C-LCI 결과 카드 및 카테고리별 점수 시각화 | 예산 입력 시 조건에 맞는 아파트 추천 |
-| ![동별 점수·아동 밀집도 비교](assets/demo/screenshot_dong_compare_chart.png) | ![반경 내 시설 현황 대시보드](assets/demo/screenshot_radius_dashboard.png) |
-| 구 내 동별 점수·아동 밀집도 비교 차트 | 반경 내 시설 현황 및 가격 대비 점수 분석 |
-
 ## 작업 흐름
 
 1. **데이터 수집 및 정제**: 놀이(키즈카페·놀이터·도서관), 교육, 의료(소아과·백신접종률), 치안(CCTV·파출소), 생활환경(공원·미세먼지 등) 공공데이터 정제 (`notebooks/` 참고, 카테고리별 전처리 노트북 22종)
