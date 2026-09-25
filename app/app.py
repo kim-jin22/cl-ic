@@ -38,6 +38,7 @@ KAKAO_API_KEY = os.environ.get("KAKAO_API_KEY", "")
 
 LIGHT_TILE_URL = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
 LIGHT_TILE_ATTR = "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
+LIGHT_TILE_ATTR_PLAIN = "Tiles © Esri — Esri, DeLorme, NAVTEQ"
 
 COLOR_SCALE = ["#FAF4D9","#F1E7B4", "#F0CF3F"]
 
@@ -1129,7 +1130,7 @@ def make_gu_map(gu_geojson, selected_region=None):
         mapbox_layers=[{
             "below": "traces",
             "sourcetype": "raster",
-            "sourceattribution": LIGHT_TILE_ATTR,
+            "sourceattribution": LIGHT_TILE_ATTR_PLAIN,
             "source": [LIGHT_TILE_URL],
         }],
     )
@@ -1216,7 +1217,7 @@ def make_dong_map(dong_geojson, selected_sido, selected_gu, result=None, houses=
         mapbox_layers=[{
             "below": "traces",
             "sourcetype": "raster",
-            "sourceattribution": LIGHT_TILE_ATTR,
+            "sourceattribution": LIGHT_TILE_ATTR_PLAIN,
             "source": [LIGHT_TILE_URL],
         }],
     )
