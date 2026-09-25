@@ -39,53 +39,36 @@ Python · Streamlit · Pandas · Folium/Plotly(지도 시각화) · Kakao API(�
 
 ## 주요 기능
 
-**1. 주소 기반 C-LCI 계산 / 2. 행정동 기반 탐색(Choropleth Map)**
+| | |
+|---|---|
+| <img src="assets/demo/feat_01_search.png" width="360"> | <img src="assets/demo/feat_02_04_result.png" width="360"> |
+| **1·2. 주소 기반 C-LCI 계산 / 행정동 탐색**<br>주소 입력 → 위경도·행정동 자동 변환 → 5개 카테고리 + 종합 점수 산출. 행정동별 점수를 Choropleth 지도로 비교 | **3·4. 선택 위치 분석 / 카테고리별 점수**<br>C-LCI 종합 점수·행정동 점수·경사도 등 제공, 5개 카테고리 점수를 바 차트로 시각화 |
+| <img src="assets/demo/feat_05_weights_anim.gif" width="360"> | <img src="assets/demo/feat_06_budget.png" width="360"> |
+| **5. 맞춤형 가중치 설정**<br>5개 카테고리 중요도를 슬라이더로 조정해 개인 맞춤 C-LCI 재산출 | **6. 예산 기반 추천**<br>주거 예산 + 가중치를 함께 반영해 조건에 맞는 주거지 추천 |
+| <img src="assets/demo/feat_07_facility_map.png" width="360"> | <img src="assets/demo/feat_08_dong_compare.png" width="360"> |
+| **7. 반경 내 카테고리별 시설 시각화**<br>설정 반경 내 카테고리별 시설 위치를 지도에 색상으로 구분 표시 | **8. 동별 점수·아동 밀집도 비교**<br>선택한 구의 동별 점수와 아동 밀집도를 그래프로 비교 |
+| <img src="assets/demo/feat_09_apartment_list.png" width="360"> | <img src="assets/demo/feat_10_radius_dashboard.png" width="360"> |
+| **9. 반경 내 시설·매물 리스트**<br>선택 지점 반경 내 시설·아파트 매물을 거리순으로 제공 | **10. 반경 내 시설 현황·가격 분석**<br>카테고리별 시설 개수와 가격 대비 C-LCI 산점도로 가성비 분석 |
 
-![주소 검색과 구별 Choropleth 지도](assets/demo/feat_01_search.png)
+## 사용자 시나리오
 
-주소 입력 → 카카오 API로 위경도·행정동 자동 변환 → 5개 카테고리 + 종합 점수 산출. 행정동별 C-LCI 점수를 색상 단계로 지도에 시각화해 양육 친화 지역을 직관적으로 비교합니다.
+**CASE 1 | 맞춤 주거지 추천** — 자녀 건강과 병원 접근성을 중요하게 생각하는 학부모
 
-**3. 선택 위치 기반 C-LCI 분석 / 4. 카테고리별 점수 시각화**
+1. 거주 희망 지역 입력 → 서대문구 홍제2동
+2. 카테고리 가중치 조정 → 의료·복지 인프라에 가장 높은 가중치 설정
+3. 예산 입력 → 전세 2억
+4. 결과 → 조건 기반 맞춤 주거지 추천
 
-![결과 카드와 카테고리별 점수](assets/demo/feat_02_04_result.png)
+![CASE 1 맞춤 주거지 추천 시나리오](assets/demo/scenario_case1_budget.gif)
 
-선택 위치의 C-LCI 종합 점수, 행정동 점수, 경사도·보행난이도 등 주거 환경 정보를 제공하고, 안전·교육·의료·놀이·생활환경 5개 카테고리 점수를 바 차트로 시각화해 강점·약점을 한눈에 비교합니다.
+**CASE 2 | 주소 기반 인프라 확인** — 이미 거주할 집은 정했지만 양육 환경이 적합한지 확인하고 싶은 사용자
 
-**5. 맞춤형 가중치 설정**
+1. 현재 상황 → 집은 결정했지만 양육 환경 확인 필요
+2. 활용 기능 → 주소 검색 기반 C-LCI 점수 조회
+3. 사용 방법 → 주소 입력 → C-LCI 점수 및 주변 시설 확인
+4. 결과 → 결정한 집 주변의 양육 환경 점수 및 시설 현황 파악
 
-<img src="assets/demo/feat_05_weights_anim.gif" width="320" alt="가중치 설정 슬라이더 조작 시 비율 실시간 변화">
-
-5개 카테고리 중요도를 슬라이더로 직접 조정해 개인 맞춤 C-LCI를 재산출합니다.
-
-**6. 예산 기반 추천 기능**
-
-<img src="assets/demo/feat_06_budget.png" width="320" alt="예산 기반 추천 결과">
-
-주거 예산 + 가중치를 함께 반영해 양육 환경과 경제 조건을 동시에 고려한 최적 주거지를 추천합니다.
-
-**7. 반경 내 카테고리별 시설 위치 시각화**
-
-![카테고리별 시설 위치 지도](assets/demo/feat_07_facility_map.png)
-
-사용자가 설정한 반경 내 카테고리별 시설 위치를 지도 위에 색상으로 구분해 표시합니다.
-
-**8. 구 내 동별 점수·아동 밀집도 비교**
-
-![동별 점수 및 아동 밀집도 비교](assets/demo/feat_08_dong_compare.png)
-
-선택한 구의 동별 점수와 아동 밀집도를 그래프로 시각화하여 비교합니다.
-
-**9. 반경 내 시설·아파트 매물 리스트**
-
-![반경 내 시설 및 아파트 리스트](assets/demo/feat_09_apartment_list.png)
-
-선택 지점 반경 내 시설 목록과 아파트 매물 리스트를 거리순으로 제공합니다.
-
-**10. 반경 내 시설 현황 및 가격 대비 분석**
-
-![반경 내 시설 현황과 가격 대비 점수 분석](assets/demo/feat_10_radius_dashboard.png)
-
-반경 내 카테고리별 시설 개수와 가격 대비 C-LCI 점수 산점도로 가성비를 분석합니다.
+![CASE 2 주소 기반 인프라 확인 시나리오](assets/demo/scenario_case2_address_check.gif)
 
 ## 작업 흐름
 
