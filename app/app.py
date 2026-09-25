@@ -1112,7 +1112,7 @@ def make_gu_map(gu_geojson, selected_region=None):
         color="구분",
         color_continuous_scale=[[0, "#F1E7B4"], [1, "#F1E7B4"]],
         range_color=[0, 1],
-        mapbox_style="carto-positron",
+        mapbox_style="open-street-map",
         zoom=9.4,
         center={"lat": 37.55, "lon": 126.98},
         opacity=0.45,
@@ -1184,7 +1184,7 @@ def make_dong_map(dong_geojson, selected_sido, selected_gu, result=None, houses=
         color="구내색상점수",
         color_continuous_scale=COLOR_SCALE,
         range_color=[0, 100],
-        mapbox_style="carto-positron",
+        mapbox_style="open-street-map",
         zoom=11.5,
         center={"lat": center_lat, "lon": center_lon},
         opacity=0.62,
@@ -1364,7 +1364,7 @@ def make_dong_click_map(
     m = folium.Map(
         location=[center_lat, center_lon],
         zoom_start=12,
-        tiles="CartoDB positron",
+        tiles="OpenStreetMap",
         control_scale=False
     )
 
