@@ -36,6 +36,9 @@ BASE_DIR = Path(__file__).resolve().parent
 
 KAKAO_API_KEY = os.environ.get("KAKAO_API_KEY", "")
 
+LIGHT_TILE_URL = "https://server.arcgisonline.com/ArcGIS/rest/services/Canvas/World_Light_Gray_Base/MapServer/tile/{z}/{y}/{x}"
+LIGHT_TILE_ATTR = "Tiles &copy; Esri &mdash; Esri, DeLorme, NAVTEQ"
+
 COLOR_SCALE = ["#FAF4D9","#F1E7B4", "#F0CF3F"]
 
 FACILITY_CATEGORY_COLORS = {
@@ -1112,7 +1115,7 @@ def make_gu_map(gu_geojson, selected_region=None):
         color="구분",
         color_continuous_scale=[[0, "#F1E7B4"], [1, "#F1E7B4"]],
         range_color=[0, 1],
-        mapbox_style="open-street-map",
+        mapbox_style="white-bg",
         zoom=9.4,
         center={"lat": 37.55, "lon": 126.98},
         opacity=0.45,
@@ -1123,6 +1126,12 @@ def make_gu_map(gu_geojson, selected_region=None):
         margin={"r": 0, "t": 0, "l": 0, "b": 0},
         height=620,
         coloraxis_showscale=False,
+        mapbox_layers=[{
+            "below": "traces",
+            "sourcetype": "raster",
+            "sourceattribution": LIGHT_TILE_ATTR,
+            "source": [LIGHT_TILE_URL],
+        }],
     )
     return fig
 
@@ -1184,7 +1193,7 @@ def make_dong_map(dong_geojson, selected_sido, selected_gu, result=None, houses=
         color="구내색상점수",
         color_continuous_scale=COLOR_SCALE,
         range_color=[0, 100],
-        mapbox_style="open-street-map",
+        mapbox_style="white-bg",
         zoom=11.5,
         center={"lat": center_lat, "lon": center_lon},
         opacity=0.62,
@@ -1204,6 +1213,12 @@ def make_dong_map(dong_geojson, selected_sido, selected_gu, result=None, houses=
         height=620,
         coloraxis_colorbar=dict(title=f"{region_label} 내 순위", tickvals=[0, 25, 50, 75, 100], thickness=12, len=0.5),
         clickmode="event+select",
+        mapbox_layers=[{
+            "below": "traces",
+            "sourcetype": "raster",
+            "sourceattribution": LIGHT_TILE_ATTR,
+            "source": [LIGHT_TILE_URL],
+        }],
     )
 
     if result:
@@ -1364,7 +1379,8 @@ def make_dong_click_map(
     m = folium.Map(
         location=[center_lat, center_lon],
         zoom_start=12,
-        tiles="OpenStreetMap",
+        tiles=LIGHT_TILE_URL,
+        attr=LIGHT_TILE_ATTR,
         control_scale=False
     )
 
