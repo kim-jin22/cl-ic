@@ -53,7 +53,7 @@ Python · Streamlit · Pandas · Folium/Plotly(지도 시각화) · Kakao API(�
 
 **5. 맞춤형 가중치 설정**
 
-<img src="assets/demo/feat_05_weights.png" width="320" alt="가중치 설정 슬라이더">
+<img src="assets/demo/feat_05_weights_anim.gif" width="320" alt="가중치 설정 슬라이더 조작 시 비율 실시간 변화">
 
 5개 카테고리 중요도를 슬라이더로 직접 조정해 개인 맞춤 C-LCI를 재산출합니다.
 
